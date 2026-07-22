@@ -1,8 +1,9 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
-<%
-    if (session.getAttribute("username") != null) {
-        response.sendRedirect(request.getContextPath() + "/home");
-    } else {
-        response.sendRedirect(request.getContextPath() + "/login");
-    }
-%>
+<%@ page contentType="text/html;charset=UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head><title>Welcome</title></head>
+<body>
+<h1>Welcome!</h1>
+<a href="hello?name=אורי קליין">Say Hello</a>
+</body>
+</html>
