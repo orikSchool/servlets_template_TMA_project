@@ -27,7 +27,6 @@
 
         <form method="post" action="${pageContext.request.contextPath}/home">
 
-            <!-- כיתה יא -->
             <div class="card">
                 <h3>כיתה י'א (משקל: 65%)</h3>
                 <div class="grid">
@@ -47,7 +46,6 @@
                 </div>
             </div>
 
-            <!-- כיתה יב -->
             <div class="card">
                 <h3>כיתה י'ב (משקל: 35%)</h3>
                 <div class="grid">

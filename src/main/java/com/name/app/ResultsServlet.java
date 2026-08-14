@@ -29,7 +29,6 @@ public class ResultsServlet extends HttpServlet {
 
         String username = (String) session.getAttribute("username");
 
-        // 1. שליפת הציון הסופי של המשתמש הנוכחי
         try (Connection conn = DatabaseManager.getConnection()) {
             String sql = "SELECT g11_final, g12_final, total_final FROM grades WHERE username = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -45,7 +44,6 @@ public class ResultsServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        // 2. חישוב ממוצע כלל המשתמשים במערכת
         try (Connection conn = DatabaseManager.getConnection()) {
             String sql = "SELECT AVG(g11_final), AVG(g12_final), AVG(total_final) FROM grades";
             Statement stmt = conn.createStatement();
@@ -60,7 +58,6 @@ public class ResultsServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        // העברה להצגת דף התוצאות
         request.getRequestDispatcher("/WEB-INF/views/results.jsp").forward(request, response);
     }
 }

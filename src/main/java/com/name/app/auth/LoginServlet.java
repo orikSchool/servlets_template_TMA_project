@@ -21,7 +21,6 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // אם המשתמש כבר מחובר, מעבירים אותו ישירות לדף הבית
         HttpSession session = request.getSession(false);
         if (session != null && session.getAttribute("username") != null) {
             response.sendRedirect(request.getContextPath() + "/home");
@@ -39,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String action = request.getParameter("action"); // "login" או "register"
+        String action = request.getParameter("action");
 
         if (username == null || password == null || username.trim().isEmpty() || password.trim().isEmpty()) {
             request.setAttribute("error", "יש למלא שם משתמש וסיסמה");
@@ -50,7 +49,6 @@ public class LoginServlet extends HttpServlet {
         username = username.trim();
 
         if ("register".equals(action)) {
-            // תהליך הרשמה
             if (registerUser(username, password)) {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("username", username);
@@ -60,7 +58,6 @@ public class LoginServlet extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
             }
         } else {
-            // תהליך התחברות
             if (validateUser(username, password)) {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("username", username);
@@ -72,9 +69,6 @@ public class LoginServlet extends HttpServlet {
         }
     }
 
-    /**
-     * אימות משתמש קיים מול מסד הנתונים H2
-     */
     private boolean validateUser(String username, String password) {
         String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
         try (Connection conn = DatabaseManager.getConnection();
@@ -84,7 +78,7 @@ public class LoginServlet extends HttpServlet {
             ps.setString(2, password);
 
             try (ResultSet rs = ps.executeQuery()) {
-                return rs.next(); // מחזיר true אם נמצא משתמש תואם
+                return rs.next();
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -92,9 +86,6 @@ public class LoginServlet extends HttpServlet {
         }
     }
 
-    /**
-     * הרשמת משתמש חדש בטבלת users
-     */
     private boolean registerUser(String username, String password) {
         String sql = "INSERT INTO users (username, password) VALUES (?, ?)";
         try (Connection conn = DatabaseManager.getConnection();
@@ -105,7 +96,6 @@ public class LoginServlet extends HttpServlet {
 
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            // אם ה-username כבר קיים, ה-UNIQUE constraint יכשיל את השאילתה
             e.printStackTrace();
             return false;
         }

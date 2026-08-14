@@ -29,7 +29,6 @@ public class HomeServlet extends HttpServlet {
 
         String username = (String) session.getAttribute("username");
 
-        // שליפת הנתונים שהוזנו בעבר כדי לאכלס את השדות בטופס
         try (Connection conn = DatabaseManager.getConnection()) {
             String sql = "SELECT * FROM grades WHERE username = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -49,7 +48,6 @@ public class HomeServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        // טעינת דף הבית (הזנת נתונים בלבד)
         request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request, response);
     }
 
@@ -67,7 +65,6 @@ public class HomeServlet extends HttpServlet {
 
         String username = (String) session.getAttribute("username");
 
-        // קבלת נתונים מהטופס
         String g11ExamStr = request.getParameter("g11_exam");
         String g11MagenStr = request.getParameter("g11_magen");
         boolean g11War = "true".equals(request.getParameter("g11_war"));
@@ -80,7 +77,6 @@ public class HomeServlet extends HttpServlet {
         Double g12Final = null;
         Double totalFinal = null;
 
-        // חישוב שנה א' (כיתה יא)
         if (g11ExamStr != null && !g11ExamStr.isEmpty() && g11MagenStr != null && !g11MagenStr.isEmpty()) {
             int exam = Integer.parseInt(g11ExamStr);
             int magen = Integer.parseInt(g11MagenStr);
@@ -94,7 +90,6 @@ public class HomeServlet extends HttpServlet {
             }
         }
 
-        // חישוב שנה ב' (כיתה יב)
         if (g12ExamStr != null && !g12ExamStr.isEmpty() && g12MagenStr != null && !g12MagenStr.isEmpty()) {
             int exam = Integer.parseInt(g12ExamStr);
             int magen = Integer.parseInt(g12MagenStr);
@@ -108,12 +103,10 @@ public class HomeServlet extends HttpServlet {
             }
         }
 
-        // חישוב ציון סופי כולל (65% יא, 35% יב)
         if (g11Final != null && g12Final != null) {
             totalFinal = (g11Final * 0.65) + (g12Final * 0.35);
         }
 
-        // שמירה במסד הנתונים
         try (Connection conn = DatabaseManager.getConnection()) {
             String deleteSql = "DELETE FROM grades WHERE username = ?";
             PreparedStatement deletePs = conn.prepareStatement(deleteSql);
@@ -149,7 +142,6 @@ public class HomeServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        // הפנייה ישירה לדף התוצאות הנפרד!
         response.sendRedirect(request.getContextPath() + "/results");
     }
 }
