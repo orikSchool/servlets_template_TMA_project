@@ -10,7 +10,7 @@
         table, th, td { border: 1px solid #ccc; border-collapse: collapse; padding: 10px; text-align: center; }
         table { width: 100%; margin-top: 15px; }
         .actions { margin-top: 20px; }
-        .btn { padding: 8px 16px; background: #2B2B2B; color: white; text-decoration: none; border-radius: 4px; }
+        .btn { padding: 8px 16px; background: #9D9D9D; color: white; text-decoration: none; border-radius: 4px; }
     </style>
 </head>
 <body>
@@ -42,9 +42,9 @@
                     <td><b>${g12_final != null ? g12_final : "-"}</b></td>
                     <td><b>${avg_g12}</b></td>
                 </tr>
-                <tr style="background: #57965C;">
+                <tr style="background: #868686;">
                     <td><b>ציון סופי כולל</b></td>
-                    <td><b style="color: #2B2B2B;">${total_final != null ? total_final : "-"}</b></td>
+                    <td><b style="color: #868686;">${total_final != null ? total_final : "-"}</b></td>
                     <td><b>${avg_total}</b></td>
                 </tr>
             </tbody>
