@@ -8,19 +8,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #4f46e5;
-            --primary-hover: #4338ca;
-            --secondary: #64748b;
-            --secondary-hover: #475569;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
-            --error-bg: #fef2f2;
-            --error-text: #dc2626;
-            --error-border: #fecaca;
-            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --input-bg: #0f172a;
+            --error-bg: rgba(220, 38, 38, 0.15);
+            --error-text: #f87171;
+            --error-border: rgba(220, 38, 38, 0.3);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
             --radius: 12px;
         }
 
@@ -86,14 +85,14 @@
             font-family: 'Heebo', sans-serif;
             font-size: 1rem;
             color: var(--text-main);
-            background-color: #fff;
+            background-color: var(--input-bg);
             transition: border-color 0.2s, box-shadow 0.2s;
         }
 
         input[type=text]:focus, input[type=password]:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
         }
 
         .btn-container {
@@ -121,7 +120,7 @@
         .btn-login {
             background-color: var(--primary);
             color: white;
-            box-shadow: 0 1px 3px rgba(79, 70, 229, 0.3);
+            box-shadow: 0 1px 3px rgba(99, 102, 241, 0.3);
         }
 
         .btn-login:hover {
@@ -129,13 +128,13 @@
         }
 
         .btn-register {
-            background-color: #f1f5f9;
+            background-color: #334155;
             color: var(--text-main);
             border: 1px solid var(--border-color);
         }
 
         .btn-register:hover {
-            background-color: #e2e8f0;
+            background-color: #475569;
         }
 
         .error {

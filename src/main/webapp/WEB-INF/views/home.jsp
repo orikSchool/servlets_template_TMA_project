@@ -8,15 +8,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #4f46e5;
-            --primary-hover: #4338ca;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
-            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --input-bg: #0f172a;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.2);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
             --radius: 12px;
         }
 
@@ -80,7 +81,7 @@
         }
 
         .topbar a:hover {
-            color: var(--primary-hover);
+            color: #818cf8;
             text-decoration: underline;
         }
 
@@ -101,17 +102,18 @@
             padding: 1.5rem;
             margin-bottom: 1.25rem;
             box-shadow: var(--shadow-sm);
-            transition: box-shadow 0.2s;
+            transition: box-shadow 0.2s, border-color 0.2s;
         }
 
         .card:hover {
             box-shadow: var(--shadow-md);
+            border-color: #475569;
         }
 
         .card h3 {
             font-size: 1.15rem;
             font-weight: 600;
-            color: var(--primary);
+            color: #818cf8;
             margin-bottom: 1.25rem;
             display: flex;
             align-items: center;
@@ -153,14 +155,14 @@
             font-family: 'Heebo', sans-serif;
             font-size: 1rem;
             color: var(--text-main);
-            background-color: #fff;
+            background-color: var(--input-bg);
             transition: border-color 0.2s, box-shadow 0.2s;
         }
 
         input[type=number]:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
         }
 
         /* Checkbox styling */
@@ -228,7 +230,7 @@
 
                 <!-- Grade 11 Card -->
                 <div class="card">
-                    <h3>כיתה י'א (משקל: 65%)</h3>
+                    <h3>כיתה י״א (משקל: 65%)</h3>
                     <div class="grid">
                         <div>
                             <label>ציון בחינה:</label>
@@ -249,7 +251,7 @@
 
                 <!-- Grade 12 Card -->
                 <div class="card">
-                    <h3>כיתה י'ב (משקל: 35%)</h3>
+                    <h3>כיתה י"ב (משקל: 35%)</h3>
                     <div class="grid">
                         <div>
                             <label>ציון בחינה:</label>

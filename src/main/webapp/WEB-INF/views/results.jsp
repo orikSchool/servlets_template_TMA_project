@@ -8,18 +8,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #4f46e5;
-            --primary-hover: #4338ca;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
-            --table-header-bg: #f1f5f9;
-            --highlight-bg: #e0e7ff;
-            --highlight-text: #3730a3;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
-            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --table-header-bg: #0f172a;
+            --highlight-bg: rgba(99, 102, 241, 0.15);
+            --highlight-text: #818cf8;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.2);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
             --radius: 12px;
         }
 
@@ -76,7 +76,7 @@
         }
 
         .topbar a:hover {
-            color: var(--primary-hover);
+            color: #818cf8;
             text-decoration: underline;
         }
 
@@ -118,7 +118,7 @@
 
         th {
             background-color: var(--table-header-bg);
-            color: var(--text-main);
+            color: var(--text-muted);
             font-weight: 600;
         }
 
@@ -134,7 +134,7 @@
         }
 
         .total-row td {
-            border-top: 2px solid #c7d2fe;
+            border-top: 2px solid rgba(99, 102, 241, 0.3);
             border-bottom: none;
         }
 
@@ -190,12 +190,12 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>ציון סופי כיתה י'א</td>
+                            <td>ציון סופי כיתה י"א</td>
                             <td><b>${g11_final != null ? g11_final : "-"}</b></td>
                             <td><b>${avg_g11}</b></td>
                         </tr>
                         <tr>
-                            <td>ציון סופי כיתה י'ב</td>
+                            <td>ציון סופי כיתה י"ב</td>
                             <td><b>${g12_final != null ? g12_final : "-"}</b></td>
                             <td><b>${avg_g12}</b></td>
                         </tr>
@@ -209,7 +209,7 @@
             </div>
 
             <div class="actions">
-                <a href="${pageContext.request.contextPath}/home" class="btn">עדכן ציונים</a>
+                <a href="${pageContext.request.contextPath}/home" class="btn">חזרה לעדכון ציונים</a>
             </div>
         </div>
     </div>
